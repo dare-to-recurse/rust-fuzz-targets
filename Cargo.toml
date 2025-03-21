@@ -11,9 +11,9 @@ path = "cli.rs"
 [dependencies]
 structopt = "0.2.7"
 clap = "2.31.2"
-regex = "0.2.10"
+regex = "1.11.1"
 failure = "0.1.1"
-strsim = "0.7.0"
+strsim = "0.11.1"
 
 [workspace]
 members = [

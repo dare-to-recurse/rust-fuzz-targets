@@ -6,4 +6,4 @@ edition = "2024"
 
 [dependencies]
 fuzz-targets-common = {path = "../common"}
-afl = "0.8"
+afl = "0.15"
