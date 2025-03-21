@@ -78,7 +78,7 @@ fn main() {
 }
 
 fn run() -> Result<(), Error> {
-    use Cli::*;
+    use crate::Cli::*;
     let cli = Cli::from_args();
 
     match cli {
@@ -101,7 +101,7 @@ fn run() -> Result<(), Error> {
                 );
             }
 
-            use Fuzzer::*;
+            use crate::Fuzzer::*;
             match fuzzer {
                 Afl => run_afl(&target, None)?,
                 Honggfuzz => run_honggfuzz(&target, None)?,
@@ -116,7 +116,7 @@ fn run() -> Result<(), Error> {
             cargo_update,
         } => {
             let run = |target: &str| -> Result<(), Error> {
-                use Fuzzer::*;
+                use crate::Fuzzer::*;
                 match fuzzer {
                     Afl => run_afl(&target, Some(timeout))?,
                     Honggfuzz => run_honggfuzz(&target, Some(timeout))?,
@@ -420,7 +420,7 @@ impl Fuzzer {
     fn dir(&self) -> Result<PathBuf, Error> {
         let cwd = env::current_dir().context("error getting current directory")?;
 
-        use Fuzzer::*;
+        use crate::Fuzzer::*;
         let p = match self {
             Afl => cwd.join("fuzzer-afl"),
             Honggfuzz => cwd.join("fuzzer-honggfuzz"),
