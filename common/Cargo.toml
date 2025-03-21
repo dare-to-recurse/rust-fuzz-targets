@@ -2,6 +2,7 @@
 name = "fuzz-targets-common"
 version = "0.1.0"
 authors = ["The rust-fuzz Project Developers"]
+edition = "2018"
 
 [dependencies]
 openssl = "0.10.26"

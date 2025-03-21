@@ -2,6 +2,7 @@
 name = "fuzz-targets"
 version = "0.1.0"
 authors = ["Pascal Hertleif <killercup@gmail.com>"]
+edition = "2018"
 
 [[bin]]
 name = "cli"
