@@ -42,12 +42,12 @@ quick-xml = { git = "https://github.com/tafia/quick-xml" }
 regex = { git = "https://github.com/rust-lang-nursery/regex" }
 regex-syntax = { git = "https://github.com/rust-lang-nursery/regex" }
 ring = { git = "https://github.com/briansmith/ring" }
-ripemd160 = { git = "https://github.com/RustCrypto/hashes" }
+ripemd = { git = "https://github.com/RustCrypto/hashes" }
 rsass = { git = "https://github.com/kaj/rsass" }
 semver = { git = "https://github.com/steveklabnik/semver" }
 serde_json = { git = "https://github.com/serde-rs/json", features = ["arbitrary_precision"] }
 serde_yaml = { git = "https://github.com/dtolnay/serde-yaml" }
-sha-1 = { git = "https://github.com/RustCrypto/hashes" }
+sha1 = { git = "https://github.com/RustCrypto/hashes" }
 sha2 = { git = "https://github.com/RustCrypto/hashes" }
 sha3 = { git = "https://github.com/RustCrypto/hashes" }
 sleep-parser = { git = "https://github.com/datrs/sleep-parser" }
