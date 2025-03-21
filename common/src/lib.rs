@@ -314,10 +314,10 @@ pub fn fuzz_html5ever_read(data: &[u8]) {
     use std::io::BufReader;
 
     use html5ever::driver::ParseOpts;
-    use markup5ever_rcdom::{RcDom, SerializableHandle};
     use html5ever::tendril::TendrilSink;
     use html5ever::tree_builder::TreeBuilderOpts;
     use html5ever::{parse_document, serialize};
+    use markup5ever_rcdom::{RcDom, SerializableHandle};
 
     let opts = ParseOpts {
         tree_builder: TreeBuilderOpts {

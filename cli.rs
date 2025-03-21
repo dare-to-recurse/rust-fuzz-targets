@@ -36,10 +36,7 @@ enum Cli {
         #[structopt(
             long = "fuzzer",
             default_value = "Honggfuzz",
-            raw(
-                possible_values = "&Fuzzer::variants()",
-                case_insensitive = "true"
-            )
+            raw(possible_values = "&Fuzzer::variants()", case_insensitive = "true")
         )]
         fuzzer: Fuzzer,
         // Run `cargo update` between cycles
@@ -55,10 +52,7 @@ enum Cli {
         #[structopt(
             long = "fuzzer",
             default_value = "Honggfuzz",
-            raw(
-                possible_values = "&Fuzzer::variants()",
-                case_insensitive = "true"
-            )
+            raw(possible_values = "&Fuzzer::variants()", case_insensitive = "true")
         )]
         fuzzer: Fuzzer,
     },
@@ -263,9 +257,15 @@ fn run_afl(target: &str, timeout: Option<i32>) -> Result<(), Error> {
         .args(&["afl", "build", "--release", "--bin", target])
         .current_dir(&dir)
         .spawn()
-        .context(format!("error starting build for {:?} of {}", fuzzer, target))?
+        .context(format!(
+            "error starting build for {:?} of {}",
+            fuzzer, target
+        ))?
         .wait()
-        .context(format!("error while waiting for build for {:?} of {}", fuzzer, target))?;
+        .context(format!(
+            "error while waiting for build for {:?} of {}",
+            fuzzer, target
+        ))?;
 
     if !build_cmd.success() {
         Err(FuzzerQuit)?;
@@ -331,7 +331,7 @@ fn run_libfuzzer(target: &str, timeout: Option<i32>) -> Result<(), Error> {
          -Cllvm-args=-sanitizer-coverage-inline-8bit-counters \
          -Cllvm-args=-sanitizer-coverage-pc-table \
          -Clink-dead-code \
-         -Zsanitizer=address"
+         -Zsanitizer=address",
     );
 
     // https://github.com/rust-fuzz/cargo-fuzz/blob/c3fd16b31de1b7bde6d8e551deebdafbafb80bfc/src/project.rs#L186-L193
@@ -357,7 +357,8 @@ fn run_libfuzzer(target: &str, timeout: Option<i32>) -> Result<(), Error> {
             &target,
             "--",
             &max_time,
-        ]).arg(&corpus_dir)
+        ])
+        .arg(&corpus_dir)
         .arg(&seed_dir)
         .env("RUSTFLAGS", &rust_flags)
         .env("ASAN_OPTIONS", &asan_options)
@@ -407,7 +408,7 @@ fn write_fuzzer_target(fuzzer: Fuzzer, target: &str) -> Result<(), Error> {
     Ok(())
 }
 
-arg_enum!{
+arg_enum! {
     #[derive(StructOpt, Debug, Clone, Copy, PartialEq, Eq)]
     enum Fuzzer {
         Afl,
